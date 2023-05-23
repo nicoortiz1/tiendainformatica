@@ -19,13 +19,13 @@ export class ProductosComponent {
  
   descuentoBusqueda: string =''; // Variable para almacenar el valor de búsqueda
   
-  buscarPorDescuento() {
-    if (this.descuentoBusqueda) {
+  buscarPorDescuento(descuento: string) {
+    if (descuento) {
       this.productos = this.productos.filter(producto =>
-        parseInt(producto.descuento) >= parseInt(this.descuentoBusqueda)
+        parseInt(producto.descuento) >= parseInt(descuento)
       );
-    }
-    else {
+    } else {
+      // Si el filtro está vacío, mostrar todos los productos
       this.productos = [
         { nombre: 'PC', precio: 300000, descuento: '20%', imagen: 'assets/images/pc.jpg' },
         { nombre: 'Teclado', precio: 1000, descuento: '10%', imagen: 'assets/images/teclado.jpg' },
@@ -38,6 +38,7 @@ export class ProductosComponent {
       ];
     }
   }
+  
   
   
 }
