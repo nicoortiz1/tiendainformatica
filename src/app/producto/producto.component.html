@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="text-right mb-3">
+        <div>
+          <input type="text" [(ngModel)]="descuentoBusqueda" placeholder="Ingrese el valor de descuento">
+          <button (click)="buscarPorDescuento()">Buscar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let producto of productos">
+      <div class="card mb-3">
+        <img [src]="producto.imagen" alt="{{ producto.nombre }}" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">{{ producto.nombre }}</h5>
+          <p class="card-text">Precio: ${{ producto.precio }}</p>
+          <p class="card-text">Descuento: {{ producto.descuento }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
